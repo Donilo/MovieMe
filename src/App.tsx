@@ -1,17 +1,21 @@
-import "./App.css";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
-    <>
-      <div className="bg-neutral-600">Navbar</div>
+    <div className="bg-cyan-800 dark:bg-gray-800">
+      <Navbar />
 
-      <div className="bg-zinc-500 h-72 my-7 rounded-md">Slider</div>
+      <div className="px-16">
+        <div className="bg-zinc-500 h-72 my-9 rounded-md">Slider</div>
 
-      <div className="flex flex-row bg-slate-600">
-        <div className="basis-3/4 bg-green-400 hover:bg-green-600">Main</div>
-        <div className="basis-1/4 bg-cyan-200">Sidebar</div>
+        <div className="grid grid-cols-4 flex-row bg-slate-600">
+          <div className="grid col-span-3 bg-green-400 hover:bg-green-600">
+            Main
+          </div>
+          <div className="col-span-1 bg-cyan-200">Sidebar</div>
+        </div>
       </div>
-    </>
+    </div>
   );
 }
 
