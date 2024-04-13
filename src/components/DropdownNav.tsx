@@ -27,7 +27,7 @@ export default function DropdownMenu({ label, children, items }: Props) {
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <Menu.Items className="absolute right-0 mt-2 w-56 h-auto origin-top-right divide-y divide-gray-700 rounded-md backdrop-blur-sm bg-gray-800/70 border-2 border-gray-700 shadow-lg ring-2 ring-black/5 focus:outline-none">
+        <Menu.Items className="absolute right-0 mt-2 w-56 h-auto overflow-hidden origin-top-right divide-y divide-gray-700 rounded-md backdrop-blur-sm bg-gray-800/70 border-2 border-gray-700 shadow-lg ring-2 ring-black/5 focus:outline-none">
           {/* if items and children not exist then return it */}
           {!items && !children ? (
             <Menu.Item as="span">Please add items</Menu.Item>

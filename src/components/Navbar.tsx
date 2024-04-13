@@ -30,7 +30,7 @@ export default function Navbar() {
       <div className="flex md:justify-between items-center" id="navbar">
         <NavbarSearch />
 
-        <ul className="flex gap-5 text-gray-800 text-xl">
+        <ul className="flex z-20 gap-5 text-gray-800 text-xl">
           <li>
             <SwitchDarkMode />
           </li>

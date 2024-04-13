@@ -1,18 +1,17 @@
 import Navbar from "./components/Navbar";
+import SliderContainer from "./components/SliderContainer";
 
 function App() {
   return (
     <div className="bg-cyan-800 dark:bg-gray-800">
       <Navbar />
 
-      <div className="px-16">
-        <div className="bg-zinc-500 h-72 my-9 rounded-md">Slider</div>
+      <div className="px-2 md:px-12 lg:px-16">
+        <SliderContainer />
 
-        <div className="grid grid-cols-4 flex-row bg-slate-600">
-          <div className="grid col-span-3 bg-green-400 hover:bg-green-600">
-            Main
-          </div>
-          <div className="col-span-1 bg-cyan-200">Sidebar</div>
+        <div className="grid grid-cols-1 md:grid-cols-4 flex-row bg-slate-600">
+          <div className="grid col-span-3">Main</div>
+          <div className="h-56 col-span-1 bg-brand-gradient">Sidebar</div>
         </div>
       </div>
     </div>
