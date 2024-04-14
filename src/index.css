@@ -2,9 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  background-color: #343639;
-}
+/* "This [website, program, service, application, product] uses TMDB and the TMDB APIs but is not endorsed, certified, or otherwise approved by TMDB." */
 
 /* just for testing */
 @layer utilities {
@@ -13,4 +11,14 @@
   }
 }
 
-/* "This [website, program, service, application, product] uses TMDB and the TMDB APIs but is not endorsed, certified, or otherwise approved by TMDB." */
+.btn-navbar {
+  @apply bg-gray-400 dark:bg-gray-700 rounded-full p-2 hover:border-transparent hover:text-red-500 hover:bg-gray-800 dark:hover:bg-gray-200 transform hover:scale-110 transition ease-out duration-300;
+}
+
+.btn-slider {
+  @apply z-20 absolute h-full text-4xl opacity-15 hover:opacity-100 transform hover:scale-125 transition-all duration-500 ease-in-out text-gray-500 hover:text-gray-200;
+}
+
+.c-transition {
+  @apply transition-all ease-out duration-300;
+}

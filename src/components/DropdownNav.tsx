@@ -15,9 +15,7 @@ interface Item {
 export default function DropdownMenu({ label, children, items }: Props) {
   return (
     <Menu as="div" className="relative inline-block text-left">
-      <Menu.Button className="flex items-center overflwo-hidden bg-gray-600 rounded-full p-2 hover:border-transparent hover:text-red-500 hover:bg-gray-700 transform hover:scale-110 transition ease-out duration-300">
-        {label}
-      </Menu.Button>
+      <Menu.Button className="btn-navbar">{label}</Menu.Button>
       <Transition
         as={Fragment}
         enter="transition ease-out duration-100"
@@ -27,7 +25,7 @@ export default function DropdownMenu({ label, children, items }: Props) {
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <Menu.Items className="absolute right-0 mt-2 w-56 h-auto overflow-hidden origin-top-right divide-y divide-gray-700 rounded-md backdrop-blur-sm bg-gray-800/70 border-2 border-gray-700 shadow-lg ring-2 ring-black/5 focus:outline-none">
+        <Menu.Items className="absolute right-0 mt-2 w-56 h-auto overflow-hidden origin-top-right divide-y divide-gray-400 dark:divide-gray-700 rounded-md backdrop-blur-xl bg-gray-500/20 dark:bg-gray-800/70 border-2 border-gray-400/50 dark:border-gray-700 shadow-lg ring-2 ring-gray-400/5 dark:ring-black/5 focus:outline-none">
           {/* if items and children not exist then return it */}
           {!items && !children ? (
             <Menu.Item as="span">Please add items</Menu.Item>
@@ -39,7 +37,9 @@ export default function DropdownMenu({ label, children, items }: Props) {
                   <a
                     href={item.href}
                     className={`${
-                      active ? "text-red-500" : "text-gray-300"
+                      active
+                        ? "text-dmMainRed"
+                        : "text-gray-200 dark:text-gray-300"
                     } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
                   >
                     {item.label}
