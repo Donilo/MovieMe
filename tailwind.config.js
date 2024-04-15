@@ -9,6 +9,9 @@ export default {
         dmAccentRed: "#ED2B2A",
         dmLightRed: "#F15A59",
         orangeAccent: "#F6B17A",
+        errorColor: "#FF204E",
+        lightPink: "#e0cbcb",
+        strongPink: "#c0a0b9",
       },
       backgroundImage: {
         carouselFadingRight:

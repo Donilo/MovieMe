@@ -2,12 +2,56 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  background-color: rgb(26, 26, 26);
+}
+
 /* "This [website, program, service, application, product] uses TMDB and the TMDB APIs but is not endorsed, certified, or otherwise approved by TMDB." */
 
 /* just for testing */
 @layer utilities {
   .bg-brand-gradient {
     background-image: linear-gradient(to left, #3490dc, #c92c87);
+  }
+
+  .scrollbar::-webkit-scrollbar {
+    width: 20px;
+    height: 10px;
+  }
+
+  .scrollbar::-webkit-scrollbar-track {
+    border-radius: 100vh;
+    background: #f7f4ed;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb {
+    background: #e0cbcb;
+    border-radius: 100vh;
+    border: 3px solid #f6f7ed;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #c0a0b9;
+  }
+
+  .scrollbar-dark::-webkit-scrollbar {
+    width: 20px;
+    height: 10px;
+  }
+
+  .scrollbar-dark::-webkit-scrollbar-track {
+    border-radius: 100vh;
+    background: #09143a;
+  }
+
+  .scrollbar-dark::-webkit-scrollbar-thumb {
+    background: #1d2543;
+    border-radius: 100vh;
+    border: 3px solid #151d32;
+  }
+
+  .scrollbar-dark::-webkit-scrollbar-thumb:hover {
+    background: #253464;
   }
 }
 
@@ -21,4 +65,20 @@
 
 .c-transition {
   @apply transition-all ease-out duration-300;
+}
+
+.error-box {
+  @apply bg-errorColor text-gray-200 font-semibold border-2 border-dmLightRed rounded-lg w-2/4 h-auto max-h-28 p-4 shadow-md dark:shadow-none;
+}
+
+.title-sm {
+  @apply text-lg font-semibold;
+}
+
+.title-lg {
+  @apply font-bold text-3xl;
+}
+
+.input-behave {
+  @apply bg-transparent border-gray-600 border rounded-2xl w-96 p-2 text-black/70 hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none focus:bg-gray-400 dark:focus:bg-gray-500 dark:placeholder:text-gray-600 dark:placeholder:hover:text-gray-800 focus:placeholder:text-gray-200 dark:focus:placeholder:text-gray-800 dark:shadow-none;
 }

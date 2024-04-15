@@ -44,7 +44,6 @@ export default function SliderContainer() {
       };
     }
     setShowingImage(id);
-    console.log(sliderInfo);
   }
 
   function calculateSliderImageEmitByArrow(method: string) {
@@ -74,7 +73,7 @@ export default function SliderContainer() {
   }
 
   return (
-    <div className="z-10 w-full h-96 my-9 rounded-md overflow-hidden relative shadow-md dark:shadow-none shadow-slate-400 ">
+    <div className="z-10 w-full h-96 my-9 rounded-lg overflow-hidden relative shadow-md dark:shadow-none shadow-slate-400 ">
       {images.map((image) => (
         <div
           key={image.id}
@@ -104,7 +103,7 @@ export default function SliderContainer() {
           </div>
         </div>
       ))}
-      <div className="flex h-1 hover:h-2 absolute left-1/2 bottom-2 gap-2 opacity-50 hover:opacity-100 c-transition">
+      <div className="flex h-1 hover:h-2 absolute left-1/2 bottom-2 -translate-x-1/2 -translate-y-1/2 gap-2 opacity-50 hover:opacity-100 c-transition">
         {images.map((image) => (
           <button
             onClick={calculateSliderImageEmitByBar}

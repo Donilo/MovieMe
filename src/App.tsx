@@ -1,3 +1,4 @@
+import MovieCardsHorizontal from "./components/MovieCardsHorizontal";
 import Navbar from "./components/Navbar";
 import SliderContainer from "./components/SliderContainer";
 
@@ -9,9 +10,13 @@ function App() {
       <div className="px-2 md:px-10 lg:px-14">
         <SliderContainer />
 
-        <div className="grid grid-cols-1 md:grid-cols-4 flex-row bg-slate-600">
-          <div className="grid col-span-3">Main</div>
-          <div className="h-56 col-span-1 bg-brand-gradient">Sidebar</div>
+        <div className="grid grid-cols-1 md:grid-cols-4 flex-row">
+          <MovieCardsHorizontal />
+          <div className="h-56 col-span-1 bg-brand-gradient">
+            <div className="m-2 p-10 text-white rounded-xl transition-all duration-500 bg-gradient-to-tl to-yellow-500 via-purple-600 from-red-500 bg-size-200 hover:bg-right-top">
+              <p>Hover over me</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>

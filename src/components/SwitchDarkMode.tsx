@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { CgSun } from "react-icons/cg";
-import { FaRegMoon } from "react-icons/fa6";
+import { FiMoon, FiSun } from "react-icons/fi";
 import NavbarButton from "./NavbarButton";
 
 export default function SwitchDarkMode() {
@@ -13,7 +12,7 @@ export default function SwitchDarkMode() {
 
   return (
     <NavbarButton onClicked={toggleDarkMode}>
-      {isDark ? <FaRegMoon /> : <CgSun />}
+      {isDark ? <FiMoon /> : <FiSun />}
     </NavbarButton>
   );
 }
