@@ -68,7 +68,7 @@
 }
 
 .error-box {
-  @apply bg-errorColor text-gray-200 font-semibold border-2 border-dmLightRed rounded-lg w-2/4 h-auto max-h-28 p-4 shadow-md dark:shadow-none;
+  @apply bg-errorColor text-gray-200 dark:text-black/65 font-semibold border-2 border-dmLightRed rounded-lg max-w-fit w-auto max-h-fit h-fit p-4 shadow-md dark:shadow-none;
 }
 
 .title-sm {

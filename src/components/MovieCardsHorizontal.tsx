@@ -1,49 +1,18 @@
-import { useState, useEffect } from "react";
-import apiClient from "../services/apiClient";
+import useMovies from "../hooks/useMovies";
 import { FaArrowTurnDown } from "react-icons/fa6";
 
-interface Date {
-  maximum: string;
-  minimum: string;
-}
-
-interface Movie {
-  genre_ids: number[];
-  id: number;
-  original_title: string;
-  title: string;
-  release_date: string;
-  poster_path: string;
-}
-
-interface FetchData {
-  dates: Date[];
-  page: number;
-  results: Movie[];
-  total_pages: number;
-  total_results: number;
-}
-
 export default function MovieCardsHorizontal() {
-  const [movies, setMovies] = useState<Movie[]>([]);
-  const [error, setError] = useState("");
-
-  useEffect(() => {
-    apiClient
-      .get<FetchData>("movie/now_playing")
-      .then((res) => setMovies(res.data.results))
-      .catch((err) => setError(err.message));
-  }, []);
+  const { movies, error } = useMovies();
 
   return (
     <>
-      {error && <div className="error-box">{error}</div>}
       <div className="grid col-span-3 grid-rows-2 overflow-hidden">
         <h1 className="title-lg mt-4 mb-4 text-gray-800 dark:text-gray-100">
           Now Playing
         </h1>
 
         <>
+          {error && <div className="error-box">{error}</div>}
           <div className="flex justify-end mt-3 mr-1">
             <a
               href="#"
