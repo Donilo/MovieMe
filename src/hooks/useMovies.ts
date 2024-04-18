@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import apiClient from "../services/apiClient";
+import { CanceledError } from "axios";
 
 interface Date {
   maximum: string;
@@ -28,10 +29,17 @@ const useMovies = () => {
   const [error, setError] = useState("");
 
   useEffect(() => {
+    const controller = new AbortController();
+
     apiClient
-      .get<FetchData>("movie/now_playing")
+      .get<FetchData>("/movie/now_playing", { signal: controller.signal })
       .then((res) => setMovies(res.data.results))
-      .catch((err) => setError(err.message));
+      .catch((err) => {
+        if (err instanceof CanceledError) return;
+        setError(err.message);
+      });
+
+    return () => controller.abort();
   }, []);
 
   return { movies, error };

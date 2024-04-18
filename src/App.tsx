@@ -12,8 +12,9 @@ function App() {
 
         <div className="grid grid-cols-1 md:grid-cols-4 flex-row">
           <MovieCardsHorizontal />
+          <MovieCardsHorizontal />
           <div className="h-56 col-span-1 bg-brand-gradient">
-            <div className="m-2 p-10 text-white rounded-xl transition-all duration-500 bg-gradient-to-tl to-yellow-500 via-purple-600 from-red-500 bg-size-200 hover:bg-right-top">
+            <div className="m-2 p-10 text-white rounded-xl transition-all duration-500 bg-gradient-to-tl to-yellow-500 via-purple-600 from-red-500 bg-size-200 hover:bg-gradient-to-rt hover:to-black hover:via-yellow-600 hover:from-red-500">
               <p>Hover over me</p>
             </div>
           </div>

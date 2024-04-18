@@ -1,6 +1,6 @@
 import { MouseEvent, useState } from "react";
 import { SlArrowLeft, SlArrowRight } from "react-icons/sl";
-import image1 from "../assets/slider1.jpg";
+import image1 from "../assets/slider1.webp";
 import image2 from "../assets/slider2.jpg";
 import image3 from "../assets/slider3.jpg";
 import image4 from "../assets/slider4.jpg";

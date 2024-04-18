@@ -7,7 +7,7 @@ export default function MovieCardsHorizontal() {
   return (
     <>
       <div className="grid col-span-3 grid-rows-2 overflow-hidden">
-        <h1 className="title-lg mt-4 mb-4 text-gray-800 dark:text-gray-100">
+        <h1 className="title-lg mt-4 mb-2 text-gray-800 dark:text-gray-100">
           Now Playing
         </h1>
 
@@ -21,13 +21,17 @@ export default function MovieCardsHorizontal() {
               See More <FaArrowTurnDown className="inline text-xs" />
             </a>
           </div>
-          <ul className="flex gap-4 -mt-7 mb-2 overflow-x-scroll scrollbar dark:scrollbar-dark">
+          <ul className="flex gap-4 md:hover:gap-6 p-4 -mt-7 mb-2 overflow-x-scroll scrollbar dark:scrollbar-dark transition-all ease-out duration-500">
             {movies.map((movie) => (
               <li
                 key={movie.id}
-                className="relative min-w-48 h-52 bg-slate-500 mb-2 rounded-xl cursor-pointer shadow-md dark:shadow-none"
+                className="relative min-w-48 h-52 bg-slate-500 mb-2 rounded-xl cursor-pointer shadow-md dark:shadow-none overflow-hidden transform hover:rounded-3xl hover:scale-105 md:hover:h-72 transition-all ease-out duration-500"
               >
-                <h3 className="absolute bottom-0 title-sm text-gray-300 p-2">
+                <img
+                  src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                  className="absolute w-full object-fit"
+                />
+                <h3 className="absolute bottom-0 title-sm bg-black/20 text-gray-300 p-2">
                   {movie.title}
                 </h3>
               </li>
