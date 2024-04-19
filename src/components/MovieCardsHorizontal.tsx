@@ -1,14 +1,22 @@
 import useMovies from "../hooks/useMovies";
 import { FaArrowTurnDown } from "react-icons/fa6";
+import SkeletonContainer from "./SkeletonCardContainer";
+import HorizontalListContainer from "./HorizontalListContainer";
+import MovieCardContainer from "./MovieCardItem";
 
-export default function MovieCardsHorizontal() {
-  const { movies, error } = useMovies();
+interface Props {
+  title: string;
+}
+
+export default function MovieCardsHorizontal({ title }: Props) {
+  const { movies, error, isLoading } = useMovies();
+  const skeletons = [1, 2, 3, 4, 5, 6];
 
   return (
     <>
       <div className="grid col-span-3 grid-rows-2 overflow-hidden">
         <h1 className="title-lg mt-4 mb-2 text-gray-800 dark:text-gray-100">
-          Now Playing
+          {title}
         </h1>
 
         <>
@@ -21,12 +29,16 @@ export default function MovieCardsHorizontal() {
               See More <FaArrowTurnDown className="inline text-xs" />
             </a>
           </div>
-          <ul className="flex gap-4 md:hover:gap-6 p-4 -mt-7 mb-2 overflow-x-scroll scrollbar dark:scrollbar-dark transition-all ease-out duration-500">
+          {isLoading && (
+            <div className="flex gap-4 p-4">
+              {skeletons.map(() => (
+                <SkeletonContainer />
+              ))}
+            </div>
+          )}
+          <HorizontalListContainer>
             {movies.map((movie) => (
-              <li
-                key={movie.id}
-                className="relative min-w-48 h-52 bg-slate-500 mb-2 rounded-xl cursor-pointer shadow-md dark:shadow-none overflow-hidden transform hover:rounded-3xl hover:scale-105 md:hover:h-72 transition-all ease-out duration-500"
-              >
+              <MovieCardContainer key={movie.id}>
                 <img
                   src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                   className="absolute w-full object-fit"
@@ -34,9 +46,9 @@ export default function MovieCardsHorizontal() {
                 <h3 className="absolute bottom-0 title-sm bg-black/20 text-gray-300 p-2">
                   {movie.title}
                 </h3>
-              </li>
+              </MovieCardContainer>
             ))}
-          </ul>
+          </HorizontalListContainer>
         </>
       </div>
     </>

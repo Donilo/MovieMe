@@ -27,22 +27,31 @@ interface FetchData {
 const useMovies = () => {
   const [movies, setMovies] = useState<Movie[]>([]);
   const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const controller = new AbortController();
 
+    // Set is loading to true to show fetching data is in process
+    setIsLoading(true);
+
+    // Make a request to the api server to get desired data
     apiClient
       .get<FetchData>("/movie/now_playing", { signal: controller.signal })
-      .then((res) => setMovies(res.data.results))
+      .then((res) => {
+        setMovies(res.data.results);
+        setIsLoading(false);
+      })
       .catch((err) => {
         if (err instanceof CanceledError) return;
         setError(err.message);
+        setIsLoading(false);
       });
 
     return () => controller.abort();
   }, []);
 
-  return { movies, error };
+  return { movies, error, isLoading };
 };
 
 export default useMovies;
