@@ -24,7 +24,7 @@ interface FetchData {
   total_results: number;
 }
 
-const useMovies = () => {
+const useMovies = (endpoint: string) => {
   const [movies, setMovies] = useState<Movie[]>([]);
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -37,7 +37,7 @@ const useMovies = () => {
 
     // Make a request to the api server to get desired data
     apiClient
-      .get<FetchData>("/movie/now_playing", { signal: controller.signal })
+      .get<FetchData>(endpoint, { signal: controller.signal })
       .then((res) => {
         setMovies(res.data.results);
         setIsLoading(false);
@@ -49,7 +49,7 @@ const useMovies = () => {
       });
 
     return () => controller.abort();
-  }, []);
+  }, [endpoint]);
 
   return { movies, error, isLoading };
 };

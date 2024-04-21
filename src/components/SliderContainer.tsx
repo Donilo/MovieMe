@@ -1,15 +1,17 @@
 import { MouseEvent, useState } from "react";
 import { SlArrowLeft, SlArrowRight } from "react-icons/sl";
-import image1 from "../assets/slider1.webp";
+import image1 from "../assets/slider1.jpg";
 import image2 from "../assets/slider2.jpg";
 import image3 from "../assets/slider3.jpg";
 import image4 from "../assets/slider4.jpg";
+import image5 from "../assets/slider5.jpg";
 
 const images = [
   { id: 1, path: image1, alt: "image 1" },
   { id: 2, path: image2, alt: "image 2" },
   { id: 3, path: image3, alt: "image 3" },
   { id: 4, path: image4, alt: "image 4" },
+  { id: 5, path: image5, alt: "image 5" },
 ];
 
 let sliderInfo = {
@@ -73,7 +75,7 @@ export default function SliderContainer() {
   }
 
   return (
-    <div className="z-10 w-full h-96 my-9 rounded-lg overflow-hidden relative shadow-md dark:shadow-none shadow-slate-400 ">
+    <div className="z-10 w-full h-[36rem] my-9 rounded-lg overflow-hidden relative shadow-md dark:shadow-none shadow-slate-400 ">
       {images.map((image) => (
         <div
           key={image.id}
@@ -111,7 +113,7 @@ export default function SliderContainer() {
             key={image.id}
             className={`${
               image.id === showingImage ? "w-7" : "w-3"
-            } bg-gray-300 rounded cursor-pointer`}
+            } bg-gray-300 rounded cursor-pointer transition-all duration-150 ease-out`}
           ></button>
         ))}
       </div>

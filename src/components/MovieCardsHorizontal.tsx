@@ -6,10 +6,11 @@ import MovieCardContainer from "./MovieCardItem";
 
 interface Props {
   title: string;
+  endpoint: string;
 }
 
-export default function MovieCardsHorizontal({ title }: Props) {
-  const { movies, error, isLoading } = useMovies();
+export default function MovieCardsHorizontal({ title, endpoint }: Props) {
+  const { movies, error, isLoading } = useMovies(endpoint);
   const skeletons = [1, 2, 3, 4, 5, 6];
 
   return (
@@ -31,21 +32,23 @@ export default function MovieCardsHorizontal({ title }: Props) {
           </div>
           {isLoading && (
             <div className="flex gap-4 p-4">
-              {skeletons.map(() => (
-                <SkeletonContainer />
+              {skeletons.map((index) => (
+                <SkeletonContainer key={index} />
               ))}
             </div>
           )}
           <HorizontalListContainer>
             {movies.map((movie) => (
               <MovieCardContainer key={movie.id}>
-                <img
-                  src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                  className="absolute w-full object-fit"
-                />
-                <h3 className="absolute bottom-0 title-sm bg-black/20 text-gray-300 p-2">
-                  {movie.title}
-                </h3>
+                <a href={`/movie/${movie.id}`}>
+                  <img
+                    src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                    className="absolute w-full object-fit"
+                  />
+                  <h3 className="absolute bottom-0 title-sm bg-black/20 text-gray-300 p-2">
+                    {movie.title}
+                  </h3>
+                </a>
               </MovieCardContainer>
             ))}
           </HorizontalListContainer>
