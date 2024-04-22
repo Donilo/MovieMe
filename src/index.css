@@ -5,11 +5,8 @@
 :root {
   background-color: rgb(26, 26, 26);
 }
-
-/* "This [website, program, service, application, product] uses TMDB and the TMDB APIs but is not endorsed, certified, or otherwise approved by TMDB." */
-
-/* just for testing */
 @layer utilities {
+  /* just for testing */
   .bg-brand-gradient {
     background-image: linear-gradient(to left, #3490dc, #c92c87);
   }
