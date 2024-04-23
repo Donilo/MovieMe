@@ -3,6 +3,10 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      fontFamily: {
+        openSans: "Open Sans",
+        ubuntu: "Ubuntu",
+      },
       colors: {
         dmDarkMode: "#070F2B",
         dmMainRed: "#D21312",

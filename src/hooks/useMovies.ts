@@ -10,10 +10,13 @@ interface Date {
 interface Movie {
   genre_ids: number[];
   id: number;
-  original_title: string;
-  title: string;
+  title: string | null;
+  original_title: string | null;
+  name: string | null;
+  original_name: string | null;
   release_date: string;
   poster_path: string;
+  backdrop_path: string;
 }
 
 interface FetchData {

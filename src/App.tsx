@@ -5,7 +5,7 @@ import TMDB from "./components/TMDB";
 
 function App() {
   return (
-    <div className="bg-gray-50 dark:bg-dmDarkMode">
+    <div className="font-openSans bg-gray-50 dark:bg-dmDarkMode">
       <Navbar />
 
       <div className="px-2 md:px-10 lg:px-14">
@@ -18,19 +18,27 @@ function App() {
               endpoint="/movie/now_playing"
             />
             <MovieCardsHorizontal
-              title="Upcoming Movies"
-              endpoint="/movie/upcoming"
+              title="Trending"
+              endpoint="/trending/all/week"
             />
             <MovieCardsHorizontal
-              title="Top Rated Movies"
+              title="Movies Top Rated"
               endpoint="/movie/top_rated"
+            />
+            <MovieCardsHorizontal
+              title="On The Air"
+              endpoint="/tv/on_the_air"
+            />
+            <MovieCardsHorizontal
+              title="TV Shows Top Rated"
+              endpoint="/tv/top_rated"
             />
           </div>
 
           <div className="p-7">
-            <div className="m-2 p-10 text-white rounded-xl transition-all duration-500 bg-gradient-to-tl to-yellow-500 via-purple-600 from-red-500 bg-size-200 hover:bg-gradient-to-rt hover:to-black hover:via-yellow-600 hover:from-red-500">
+            {/* <div className="m-2 p-10 text-white rounded-xl transition-all duration-500 bg-gradient-to-tl to-yellow-500 via-purple-600 from-red-500 bg-size-200 hover:bg-gradient-to-rt hover:to-black hover:via-yellow-600 hover:from-red-500">
               <p>Hover over me</p>
-            </div>
+            </div> */}
 
             <TMDB />
           </div>

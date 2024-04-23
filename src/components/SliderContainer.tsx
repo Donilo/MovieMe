@@ -25,7 +25,8 @@ export default function SliderContainer() {
 
   function calculateSliderImageEmitByBar(event: MouseEvent) {
     event.preventDefault();
-    const id = Number(event.target.id);
+    const target = event.target as HTMLButtonElement;
+    const id = Number(target.id);
     if (id - 1 == 0) {
       sliderInfo = {
         prev: images.length,
@@ -52,8 +53,8 @@ export default function SliderContainer() {
     if (method == "prev") {
       if (sliderInfo.current - 1 <= 0) {
         sliderInfo = {
-          prev: 3,
-          current: 4,
+          prev: images.length - 1,
+          current: images.length,
           next: 1,
         };
       } else {
@@ -62,7 +63,7 @@ export default function SliderContainer() {
     } else if (method == "next") {
       if (sliderInfo.current + 1 > images.length) {
         sliderInfo = {
-          prev: 4,
+          prev: images.length,
           current: 1,
           next: 2,
         };

@@ -20,6 +20,24 @@ export default function NavbarSearch() {
     }, [ref]);
   }
 
+  function focusOn(event: KeyboardEvent) {
+    if (event.ctrlKey && event.key === "k") {
+      event.preventDefault();
+      const search = document.querySelector("#search");
+      (search as HTMLElement).focus();
+      setIsFocus(true);
+      if (isFocus) {
+        document.removeEventListener("keydown", focusOn);
+      }
+    }
+  }
+
+  useEffect(() => {
+    document.addEventListener("keydown", focusOn);
+    // clean up
+    return () => document.removeEventListener("keydown", focusOn);
+  }, []);
+
   useClickOutsideTrack(searchRef);
 
   return (
@@ -31,6 +49,7 @@ export default function NavbarSearch() {
             setIsFocus(true);
           });
         }}
+        id="search"
         type="search"
         className="input-behave"
         placeholder="Search..."
