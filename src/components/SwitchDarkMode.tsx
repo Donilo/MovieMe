@@ -1,14 +1,9 @@
-import { useState } from "react";
 import { FiMoon, FiSun } from "react-icons/fi";
 import NavbarButton from "./NavbarButton";
+import useDarkMode from "../hooks/useDarkMode";
 
 export default function SwitchDarkMode() {
-  const [isDark, setIsDark] = useState(true);
-
-  const toggleDarkMode = () => {
-    document.documentElement.classList.toggle("dark");
-    setIsDark(!isDark);
-  };
+  const { isDark, toggleDarkMode } = useDarkMode();
 
   return (
     <NavbarButton onClicked={toggleDarkMode}>

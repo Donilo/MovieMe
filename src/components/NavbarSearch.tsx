@@ -1,54 +1,15 @@
-import { useState, useRef, useEffect, RefObject } from "react";
+import { useRef } from "react";
+import useFocusTrack from "../hooks/useClickOutsideTrack";
 
 export default function NavbarSearch() {
-  const [isFocus, setIsFocus] = useState(false);
   const searchRef = useRef<HTMLInputElement>(null);
-
-  function useClickOutsideTrack(ref: RefObject<HTMLInputElement>) {
-    useEffect(() => {
-      function handleClickOutside(event: MouseEvent) {
-        if (ref.current && !ref.current.contains(event.target as Node)) {
-          setIsFocus(false);
-        }
-      }
-
-      document.addEventListener("mousedown", handleClickOutside);
-      // to clean up
-      return () => {
-        document.removeEventListener("mousedown", handleClickOutside);
-      };
-    }, [ref]);
-  }
-
-  function focusOn(event: KeyboardEvent) {
-    if (event.ctrlKey && event.key === "k") {
-      event.preventDefault();
-      const search = document.querySelector("#search");
-      (search as HTMLElement).focus();
-      setIsFocus(true);
-      if (isFocus) {
-        document.removeEventListener("keydown", focusOn);
-      }
-    }
-  }
-
-  useEffect(() => {
-    document.addEventListener("keydown", focusOn);
-    // clean up
-    return () => document.removeEventListener("keydown", focusOn);
-  }, []);
-
-  useClickOutsideTrack(searchRef);
+  const { isFocus, setIsFocus } = useFocusTrack(searchRef);
 
   return (
     <div className="mr-5 relative hidden md:block">
       <input
         ref={searchRef}
-        onClick={(event) => {
-          event.target.addEventListener("click", () => {
-            setIsFocus(true);
-          });
-        }}
+        onClick={() => setIsFocus(true)}
         id="search"
         type="search"
         className="input-behave"

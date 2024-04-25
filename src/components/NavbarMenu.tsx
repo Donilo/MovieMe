@@ -6,6 +6,7 @@ import SwitchDarkMode from "./SwitchDarkMode";
 
 const links = [
   { href: "/account", label: "Account settings" },
+  { href: "/watchlist", label: "Watchlist" },
   { href: "/support", label: "Support" },
   { href: "/sign-out", label: "Sign out" },
 ];
